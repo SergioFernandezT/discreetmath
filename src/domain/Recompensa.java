@@ -4,6 +4,7 @@ public class Recompensa {
     private int _id;
     private String nombre;
     private String descripcion;
+    private int idNivel;
 
     public void mostraRecompensa(){
         System.out.println("********** Recompensa ***********");
@@ -30,5 +31,12 @@ public class Recompensa {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public int getIdNivel() {
+        return idNivel;
+    }
+    public void setIdNivel(int idNivel) {
+        this.idNivel = idNivel;
     }
 }
