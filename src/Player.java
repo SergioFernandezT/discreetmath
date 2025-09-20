@@ -14,7 +14,7 @@ public class Player<T> {
     public void showPlayerRewards(){
         try {
             for(T reward : this.rewards) {
-                reward.showReward();
+                reward.mostrarRecompensa();
             }
         }catch (Exception e){
             System.out.println("Error in show rewards.");
@@ -24,8 +24,6 @@ public class Player<T> {
     public void showPlayerLives(){
         System.out.println("Player remaining lives: "+this.lives);
     }
-
-
 
     public String getName() {
         return name;
