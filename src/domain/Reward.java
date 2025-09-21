@@ -3,7 +3,7 @@ package domain;
 public class Reward {
     private int id;
     private String name;
-    private String descrption;
+    private String description;
     private int idLevel;
 
     public int get_id() {
@@ -19,11 +19,11 @@ public class Reward {
     }
 
     public String getDescrption() {
-        return descrption;
+        return description;
     }
 
-    public void setDescrption(String descrption) {
-        this.descrption = descrption;
+    public void setDescrption(String description) {
+        this.description = description;
     }
 
     public int getIdLevel() {
@@ -37,7 +37,7 @@ public class Reward {
     public void showReward(){
         System.out.println("********** Reward ***********");
         System.out.println("Nombre: "+ name);
-        System.out.println("Descripcion: "+descrption);
+        System.out.println("Descripcion: "+description);
         System.out.println("*********************************");
     }
 }
