@@ -7,7 +7,7 @@ public class Player {
     private int gameId;
     private Reward[] rewards;
 
-    Player(int playerId, String name, int gameId){
+    public Player(int playerId, String name, int gameId){
         this.playerId = playerId;
         this.name = name;
         this.gameId = gameId;
