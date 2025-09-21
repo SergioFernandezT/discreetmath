@@ -1,3 +1,5 @@
+package domain;
+
 public class Player<T> {
     private int playerId;
     private String name;
@@ -22,7 +24,7 @@ public class Player<T> {
     }
 
     public void showPlayerLives(){
-        System.out.println("Player remaining lives: "+this.lives);
+        System.out.println("domain.Player remaining lives: "+this.lives);
     }
 
     public String getName() {

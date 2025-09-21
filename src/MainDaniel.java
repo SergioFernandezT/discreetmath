@@ -1,3 +1,5 @@
+import domain.Player;
+
 public class MainDaniel {
 
     public static void main(String[] args) {
