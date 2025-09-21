@@ -1,11 +1,11 @@
 package domain;
 
-public class Player<T> {
+public class Player {
     private int playerId;
     private String name;
     private int lives = 3;
     private int gameId;
-    private T[] rewards;
+    private Reward[] rewards;
 
     Player(int playerId, String name, int gameId){
         this.playerId = playerId;
@@ -15,8 +15,8 @@ public class Player<T> {
 
     public void showPlayerRewards(){
         try {
-            for(T reward : this.rewards) {
-                reward.mostrarRecompensa();
+            for(Reward reward : this.rewards) {
+                reward.showReward();
             }
         }catch (Exception e){
             System.out.println("Error in show rewards.");
@@ -51,11 +51,11 @@ public class Player<T> {
         this.gameId = gameId;
     }
 
-    public T[] getRewards() {
+    public Reward[] getRewards() {
         return rewards;
     }
 
-    public void setRewards(T[] rewards) {
+    public void setRewards(Reward[] rewards) {
         this.rewards = rewards;
     }
 
