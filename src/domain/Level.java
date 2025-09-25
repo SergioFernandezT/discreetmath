@@ -21,15 +21,15 @@ public class Level {
         System.out.println(levelDescription);
 
         for (Challenge currentChallenge : levelChallenges) {
-            currentChallenge.showStatement();
-            String playerAnswer = gamePlayer.enterAnswer(); // method to be implemented in Player
-            if (currentChallenge.checkAnswer(playerAnswer)) {
-                System.out.println("Challenge completed");
-            } else {
-                gamePlayer.modifyLives(-1);
-                System.out.println("You failed, try again...");
-                return false;
-            }
+//            currentChallenge.showStatement();
+//            String playerAnswer = gamePlayer.enterAnswer(); // method to be implemented in Player
+//            if (currentChallenge.checkAnswer(playerAnswer)) {
+//                System.out.println("Challenge completed");
+//            } else {
+//                gamePlayer.modifyLives(-1);
+//                System.out.println("You failed, try again...");
+//                return false;
+//            }
         }
         this.levelCompleted = true;
         System.out.println("You have successfully completed this level!");
@@ -40,7 +40,7 @@ public class Level {
     public void showChallengeList() {
         System.out.println("List of challenges:");
         for (int challengeIndex = 0; challengeIndex < levelChallenges.length; challengeIndex++) {
-            System.out.println((challengeIndex + 1) + ". " + levelChallenges[challengeIndex].getStatement());
+            //System.out.println((challengeIndex + 1) + ". " + levelChallenges[challengeIndex].getStatement());
         }
     }
 

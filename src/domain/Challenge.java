@@ -1,14 +1,14 @@
 package domain;
 
-public class Reto {
-    private int idReto;
+public class Challenge {
+    private int idChallenge;
     private String enunciado;
     private String[] opciones;
     private String solucion;
     private int oportunidades;
 
-    public Reto(int idReto, String enunciado, String[] opciones, String solucion, int oportunidades) {
-        this.idReto = idReto;
+    public Challenge(int idChallenge, String enunciado, String[] opciones, String solucion, int oportunidades) {
+        this.idChallenge = idChallenge;
         this.enunciado = enunciado;
         this.opciones = opciones;
         this.solucion = solucion;
@@ -17,8 +17,8 @@ public class Reto {
     public void mostrarEnunciado(){
         System.out.println("El enunciado es: " + this.enunciado);
     }
-    public Reto[] seleccionarReto(){
-        Reto[] retoSeleccionado = {};
+    public Challenge[] seleccionarChallenge(){
+        Challenge[] retoSeleccionado = {};
         return retoSeleccionado;
     }
 
