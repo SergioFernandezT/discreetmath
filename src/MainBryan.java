@@ -7,6 +7,6 @@ public class MainBryan {
     }
 
     public static void executeProgram(){
-        Reward test = new Reward();
+        //Reward test = new Reward();
     }
 }
