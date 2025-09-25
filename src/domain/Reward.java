@@ -6,6 +6,13 @@ public class Reward {
     private String description;
     private int idLevel;
 
+    public Reward(int id, String name, String description, int idLevel) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.idLevel = idLevel;
+    }
+
     public int get_id() {
         return id;
     }

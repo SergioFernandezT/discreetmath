@@ -23,9 +23,7 @@ public class Player {
         }
     }
 
-    public void showPlayerLives(){
-        System.out.println("domain.Player remaining lives: "+this.lives);
-    }
+    public int showPlayerLives(){ return this.lives; }
 
     public String getName() {
         return name;
