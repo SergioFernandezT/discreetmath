@@ -14,15 +14,15 @@ public class Game {
         int completedLevels = 0;
         for (int i = 0; i < levels.length && player.hasLive(); i++) {
             if (levels[i].playLevel(player)) {
-                System.out.println("**** Game passed Level ********");
+                System.out.println("\n**** Game passed Level ********");
                 player.addReward(levels[i].getReward());
                 completedLevels++;
             }else if(!player.hasLive()){
-                System.out.println("Game Over, you're out of lives");
+                System.out.println("\n***** Game Over, you're out of lives *****");
             }
         }
         if(completedLevels == levels.length){
-            System.out.println("Congratulations" + player.getName() + ", you have passed all the levels.");
+            System.out.println("\n---------- Congratulations " + player.getName() + ", you have passed all the levels. ---------");
         }
     }
 

@@ -15,7 +15,7 @@ public class Challenge {
         this.completed = false;
     }
     public void mostrarEnunciado(){
-        System.out.println("El enunciado es: " + this.enunciado);
+        System.out.println("\nThe statement is: " + this.enunciado);
     }
    /* public Challenge[] seleccionarChallenge(){
         Challenge[] retoSeleccionado = {};
@@ -23,7 +23,7 @@ public class Challenge {
     }*/
 
     public void showOptions() {
-        System.out.println("\n***** Mostrando opciones *****\n");
+        System.out.println("\n***** Show options *****\n");
         for(int i = 0; i < opciones.length; i++){
             System.out.println((i+1) + " - " + opciones[i]);
         }

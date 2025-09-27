@@ -26,23 +26,22 @@ public class Level {
         Scanner sc = new Scanner(System.in);
         int countLevels = 0;
         while(gamePlayer.hasLive() && !levelCompleted) {
-            System.out.println("\n Level " + levelId + ": " + levelName);
-            System.out.println("\n Lives: " + gamePlayer.getLives());
-
+            System.out.println("\nLives: " + gamePlayer.getLives());
+            System.out.println("\nLevel " + levelId + " - " + levelName);
             System.out.println(levelDescription);
             Challenge challenge = this.selectChallenge();
             challenge.mostrarEnunciado();
             challenge.showOptions();
-            System.out.print("\n Seleccione una opcion: " );
+            System.out.print("\nSelect an option: " );
             indiceResponse = sc.nextInt();
 
             //System.out.println("La respuesta seleccionada es: " + challenge.getOpciones()[indiceResponse-1]);
             //System.out.println("Lo que esta guardado es: " + challenge.getSolucion());
             if (challenge.compareSelection(challenge.getOpciones()[(indiceResponse-1)])){
                 countLevels++;
-                System.out.println("Acertaste la soluccion");
+                System.out.println(" ------ Well done! You solved the challenge --------");
             }else {
-                System.out.println("************* No acertaste el valor ******************");
+                System.out.println("------- Incorrect value -------");
                 gamePlayer.modifyLives();
             }
             if (countLevels == 3)
