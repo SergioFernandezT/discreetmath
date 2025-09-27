@@ -1,16 +1,23 @@
+import domain.Challenge;
 import domain.Reward;
+import domain.Game;
 
 public class MainBryan {
 
     public static void main(String[] args) {
-        executeProgram();
+        executeProgram1();
     }
 
     public static void executeProgram1(){
 
-        Reward test = new Reward();
-        Reward test2 = new Reward();
-        Reward test3 = new Reward();
+        Reward test = new Reward(1,"recompensa nivel 1","Se entrega una medalla de honor por terminar el nivel 1", 2);
+        Reward test2 = new Reward(1,"recompensa nivel 1","Se entrega una medalla de honor por terminar el nivel 1", 2);
+        Reward test3 = new Reward(1,"recompensa nivel 1","Se entrega una medalla de honor por terminar el nivel 1", 2);
+        Game game1 = new Game(1);
+        String[] arreglo = {"a","b","c","d"};
+        Challenge challenge1 = new Challenge(1,"enunciado 1", arreglo,"a"  );
+        Challenge[] challenges = {challenge1,challenge1,challenge1};
+        game1.playGame(challenges, challenges, test, test2);
 
         test.setName("recompensa nivel 1");
         System.out.println(test.getName());

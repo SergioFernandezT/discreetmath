@@ -1,4 +1,5 @@
 import domain.Player;
+import domain.Reward;
 
 public class MainDaniel {
 
