@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Arrays;
+
 public class Player {
     private int playerId;
     private String name;
@@ -55,8 +57,18 @@ public class Player {
 
     public void setRewards(Reward[] rewards) {
         this.rewards = rewards;
+
     }
 
+    public void addReward(Reward reward) {
+        if (this.rewards != null) {
+            int newLength = this.rewards.length + 1;
+            this.rewards = Arrays.copyOf(this.rewards, newLength);
+            this.rewards[this.rewards.length - 1] = reward;
+        }else{
+            System.out.println("Error in add reward.");
+        }
+    }
     public int getPlayerId() {
         return playerId;
     }

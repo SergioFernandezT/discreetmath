@@ -6,7 +6,7 @@ public class Challenge {
     private String[] opciones;
     private String solucion;
 
-    public Challenge(int idChallenge, String enunciado, String[] opciones, String solucion, int oportunidades) {
+    public Challenge(int idChallenge, String enunciado, String[] opciones, String solucion) {
         this.idChallenge = idChallenge;
         this.enunciado = enunciado;
         this.opciones = opciones;
