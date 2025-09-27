@@ -7,7 +7,7 @@ public class Player {
     private int gameId;
     private Reward[] rewards;
 
-    Player(int playerId, String name, int gameId){
+    public Player(int playerId, String name, int gameId){
         this.playerId = playerId;
         this.name = name;
         this.gameId = gameId;
@@ -23,9 +23,7 @@ public class Player {
         }
     }
 
-    public void showPlayerLives(){
-        System.out.println("domain.Player remaining lives: "+this.lives);
-    }
+    public int showPlayerLives(){ return this.lives; }
 
     public String getName() {
         return name;

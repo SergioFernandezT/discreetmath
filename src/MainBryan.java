@@ -2,10 +2,8 @@ import domain.Reward;
 
 public class MainBryan {
 
-    public static void main(String[] args)
-    {
-
-        executeProgram1();
+    public static void main(String[] args) {
+        executeProgram();
     }
 
     public static void executeProgram1(){
