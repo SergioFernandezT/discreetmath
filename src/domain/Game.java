@@ -3,27 +3,44 @@ package domain;
 public class Game {
     private int id;
     private Level[] levels;
+    private int idPlayer;
 
     public Game(int id) {
         this.loadLevels();
+        this.id = id;
     }
 
-    public void controlLevel() {
-
+    private void controlLevel(Player player) {
+        int completedLevels = 0;
+        for (int i = 0; i < levels.length && player.hasLive(); i++) {
+            if (levels[i].playLevel(player)) {
+                System.out.println("**** Game passed Level ********");
+                player.addReward(levels[i].getReward());
+                completedLevels++;
+            }else if(!player.hasLive()){
+                System.out.println("Game Over, you're out of lives");
+            }
+        }
+        if(completedLevels == levels.length){
+            System.out.println("Congratulations" + player.getName() + ", you have passed all the levels.");
+        }
     }
 
-    public void passLevel() {
+    /*public void assignReward() { Esta en la clase de jugador
 
-    }
+    }*/
 
-    public void assignReward() {
-
+    public void jugar(Player player) {
+        System.out.println("Starting Game ......");
+        this.idPlayer = player.getPlayerId();
+        loadLevels();
+        controlLevel(player);
     }
 
     private void loadLevels() {
         this.levels = new Level[2]; // se cargan los 2 niveles
         this.levels[0] = new Level(1, "Induccion", "Resolver problemas de patrones y sumatorias aplicando inducción matemática.",this.challengesLevelOne(),new Reward(1, "Llave de Plata","Permite avanzar al siguiente nivel y simboliza el dominio de patrones y sumatorias por inducción."));
-        this.levels[0] = new Level(2, "Conjuntos", "El aprendiz atravsa un valle encantado resolviendo acertijos sobre operaciones y relaciones de conjuntos.",this.challengesLevelTwo(),new Reward(2, "Llave de Oro","Abre la salida del nivel y representa el control sobre operaciones y relaciones de conjuntos."));
+        this.levels[1] = new Level(2, "Conjuntos", "El aprendiz atravsa un valle encantado resolviendo acertijos sobre operaciones y relaciones de conjuntos.",this.challengesLevelTwo(),new Reward(2, "Llave de Oro","Abre la salida del nivel y representa el control sobre operaciones y relaciones de conjuntos."));
     }
 
     private Challenge[] challengesLevelOne() {
@@ -48,4 +65,3 @@ public class Game {
 
 
 }
-

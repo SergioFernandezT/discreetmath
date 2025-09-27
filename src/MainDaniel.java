@@ -8,7 +8,7 @@ public class MainDaniel {
     }
 
     public static void executeProgram(){
-        Player player1 = new Player(198, "Daniel12", 12983);
+       /* Player player1 = new Player(198, "Daniel12", 12983);
 
         Player player2 = new Player(130, "Carlos", 19273);
 
@@ -46,6 +46,6 @@ public class MainDaniel {
         System.out.println("Player id: " + player3.getPlayerId());
 
 
-        
+        */
     }
 }
