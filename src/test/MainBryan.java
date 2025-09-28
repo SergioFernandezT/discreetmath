@@ -1,3 +1,5 @@
+package test;
+
 import domain.Challenge;
 import domain.Reward;
 import domain.Game;

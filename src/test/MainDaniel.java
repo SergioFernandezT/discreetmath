@@ -1,5 +1,4 @@
-import domain.Player;
-import domain.Reward;
+package test;
 
 public class MainDaniel {
 
