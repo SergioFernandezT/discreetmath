@@ -9,10 +9,10 @@ public class Player {
     private int gameId;
     private Reward[] rewards;
 
-    public Player(int playerId, String name, int gameId){
+    public Player(int playerId, String name){
         this.playerId = playerId;
         this.name = name;
-        this.gameId = gameId;
+        this.rewards = new Reward[0];
     }
 
     public void showPlayerRewards(){
@@ -25,7 +25,11 @@ public class Player {
         }
     }
 
-    public int showPlayerLives(){ return this.lives; }
+    public void modifyLives() {
+        this.lives--;
+    }
+
+    public boolean hasLive(){ return this.lives!=0; }
 
     public String getName() {
         return name;

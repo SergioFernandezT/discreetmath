@@ -1,44 +1,58 @@
 package domain;
-import domain.Challenge;
-import domain.Reward;
-import domain.Level;
-import domain.Player;
 
 public class Game {
-    private int id_game;
-    private int CantidadRetosPasados;
+    private int id;
+    private Level[] levels;
+    private int idPlayer;
 
-    public Game(int id_game) {
-        this.id_game = id_game;
+    public Game(int id) {
+        this.loadLevels();
+        this.id = id;
     }
-
-    public boolean passLevel(boolean statuslevel, int idLevel, Player player, Reward reward) {
-        // si cumple los tres retos pasa nevvel y sae asigna recompensa
-        if (statuslevel == true) {
-
-            player.addReward(reward);
-            return   true;
-        }else {
-            player.setLives(player.getLives() - 1);
-        }
-        return false;
-    }
-
-    public void playGame(Challenge[] reto1, Challenge[] reto2, Reward reward1,  Reward reward2) {
-        //Se creara los niveles y las recompensas necesarias para que el juego funcione
-        Level level1 = new Level(1, "Nivel 1","Nivel de introduccion" ,reto1);
-        Level level2 = new Level(2, "Nivel 2","Nivel de conjuntos" ,reto2);
-
-        Player player1 = new Player(198, "Daniel12", 12983);
-
-        while (player1.getLives() > 0){
-
-            boolean levelPass = passLevel(level1.playLevel(player1), level1.getLevelId(), player1, reward1);
-            if (levelPass == true) {
-                passLevel(level2.playLevel(player1), level2.getLevelId(), player1, reward2);
+    private void controlLevel(Player player) {
+        int completedLevels = 0;
+        for (int i = 0; i < levels.length && player.hasLive(); i++) {
+            if (levels[i].playLevel(player)) {
+                System.out.println("\n**** Game passed Level ********");
+                player.addReward(levels[i].getReward());
+                completedLevels++;
+            } else if (!player.hasLive()) {
+                System.out.println("\n***** Game Over, you're out of lives *****");
             }
         }
+        if (completedLevels == levels.length) {
+            System.out.println("\n---------- Congratulations " + player.getName() + ", you have passed all the levels. ---------");
+        }
+    }
+    public void jugar(Player player) {
+        System.out.println("Starting Game ......");
+        this.idPlayer = player.getPlayerId();
+        loadLevels();
+        controlLevel(player);
+    }
+    private void loadLevels() {
+        this.levels = new Level[2]; // se cargan los 2 niveles
+        this.levels[0] = new Level(1, "Induccion", "Resolver problemas de patrones y sumatorias aplicando inducción matemática.",this.challengesLevelOne(),new Reward(1, "Llave de Plata","Permite avanzar al siguiente nivel y simboliza el dominio de patrones y sumatorias por inducción."));
+        this.levels[1] = new Level(2, "Conjuntos", "El aprendiz atravsa un valle encantado resolviendo acertijos sobre operaciones y relaciones de conjuntos.",this.challengesLevelTwo(),new Reward(2, "Llave de Oro","Abre la salida del nivel y representa el control sobre operaciones y relaciones de conjuntos."));
+    }
 
+    private Challenge[] challengesLevelOne() {
+        return new Challenge[]{
+                new Challenge(1, "Enunciado 1", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion3"),
+                new Challenge(2, "Enunciado 2", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion2"),
+                new Challenge(3, "Enunciado 3", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion1"),
+                new Challenge(4, "Enunciado 4", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion4"),
+                new Challenge(5, "Enunciado 5", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion2")
+        };
+    }
+    private Challenge[] challengesLevelTwo() {
+        return new Challenge[]{
+                new Challenge(6, "Enunciado 6", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion3"),
+                new Challenge(7, "Enunciado 7", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion2"),
+                new Challenge(8, "Enunciado 8", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion1"),
+                new Challenge(9, "Enunciado 9", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion4"),
+                new Challenge(10, "Enunciado 10", new String[]{"Opcion1", "Opcion2", "Opcion3", "Opcion4"}, "Opcion2")
+        };
     }
 
 }

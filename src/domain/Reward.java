@@ -4,13 +4,13 @@ public class Reward {
     private int id;
     private String name;
     private String description;
-    private int idLevel;
+   // private int idLevel;
 
-    public Reward(int id, String name, String description, int idLevel) {
+    public Reward(int id, String name, String description) { //No hace falta el idLevel, la asociacion ya se aplica en Reward
         this.id = id;
         this.name = name;
         this.description = description;
-        this.idLevel = idLevel;
+       // this.idLevel = idLevel;
     }
 
     public int get_id() {
@@ -33,13 +33,13 @@ public class Reward {
         this.description = description;
     }
 
-    public int getIdLevel() {
+    /*public int getIdLevel() {
         return idLevel;
     }
 
     public void setIdLevel(int idLevel) {
         this.idLevel = idLevel;
-    }
+    }*/
 
     public void showReward(){
         System.out.println("********** Reward ***********");
