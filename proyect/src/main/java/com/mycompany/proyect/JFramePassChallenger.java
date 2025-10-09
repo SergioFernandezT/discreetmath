@@ -4,6 +4,12 @@
  */
 package com.mycompany.proyect;
 
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author brayan
@@ -18,11 +24,16 @@ public class JFramePassChallenger extends javax.swing.JFrame {
      */
     public JFramePassChallenger() {
         initComponents();
+        
+        
         //this.setExtendedState(this.MAXIMIZED_BOTH);
     }
     
     public void cMain (Main main){
-        this.main = main;                
+        this.main = main;
+        
+       
+        
     }
      
     public void printAnswer(boolean pastChallenge){
@@ -31,9 +42,41 @@ public class JFramePassChallenger extends javax.swing.JFrame {
         }else{
             jLabelAnswer.setText("LA RESPUESTA ES INCORRECTA");
         }
+        String[] dataGame = main.dataGame();
+                
+        passLevel();
         
-    }           
+    }    
+    
+    public void passLevel(){
+        String[] dataGame = main.dataGame();
+        String[] dataReward = main.dataReward(); 
+        if(dataReward != null && Integer.parseInt(dataGame[4]) != 0){
+            
+            SetImageLabel(jLabelReward,dataReward[dataReward.length - 1]);
+             jLabelAnswer.setText("FELICIDADES PASASTE EL NIVEL ");
+        }
+    }
 
+    
+    private void SetImageLabel (JLabel labelIcon, String root){
+        System.out.println(root);
+        URL imageURL = getClass().getResource(root);
+        ImageIcon image = new ImageIcon(imageURL);
+              
+
+        Icon icon = new ImageIcon(
+               image.getImage().getScaledInstance(labelIcon.getWidth(), labelIcon.getHeight(), Image.SCALE_DEFAULT)
+        );
+        
+        labelIcon.setIcon(icon);
+        if (image.getIconWidth() == -1) {
+            System.out.println("❌ No se encontró la imagen en la ruta especificada.");
+        } else {
+            System.out.println("✅ Imagen cargada correctamente.");
+        };
+        this.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +89,7 @@ public class JFramePassChallenger extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelAnswer = new javax.swing.JLabel();
         Continue = new javax.swing.JButton();
+        jLabelReward = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,7 +101,7 @@ public class JFramePassChallenger extends javax.swing.JFrame {
         jLabelAnswer.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAnswer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelAnswer.setText("jLabel1");
-        jPanel1.add(jLabelAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 510, 38));
+        jPanel1.add(jLabelAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 510, 38));
 
         Continue.setText("CONTINUAR");
         Continue.addActionListener(new java.awt.event.ActionListener() {
@@ -65,10 +109,11 @@ public class JFramePassChallenger extends javax.swing.JFrame {
                 ContinueActionPerformed(evt);
             }
         });
-        jPanel1.add(Continue, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
+        jPanel1.add(Continue, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
+        jPanel1.add(jLabelReward, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 180, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo_start.gif"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -1, 520, 440));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,6 +132,7 @@ public class JFramePassChallenger extends javax.swing.JFrame {
     private void ContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueActionPerformed
         // TODO add your handling code here:
         framePassChallenger = new JFrameLevel();
+        main.setGiveReward(0);
         framePassChallenger.cMain(main);
         framePassChallenger.setVisible(true);
         framePassChallenger.printChallenge();
@@ -123,6 +169,7 @@ public class JFramePassChallenger extends javax.swing.JFrame {
     private javax.swing.JButton Continue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAnswer;
+    private javax.swing.JLabel jLabelReward;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

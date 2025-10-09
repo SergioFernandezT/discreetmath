@@ -9,6 +9,7 @@ public class Challenge {
     public Challenge(int idChallenge, String enunciado, String[] opciones, String solucion) {
         this.idChallenge = idChallenge;
         this.enunciado = enunciado;
+        this.enunciado = enunciado.stripLeading();
         this.opciones = opciones;
         this.solucion = solucion;
     }

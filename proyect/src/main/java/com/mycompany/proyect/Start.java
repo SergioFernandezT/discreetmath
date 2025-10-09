@@ -5,6 +5,7 @@
 package com.mycompany.proyect;
 
 import java.awt.*;
+import java.net.URL;
 import javax.swing.*;
 /**
  *
@@ -33,7 +34,29 @@ public class Start extends javax.swing.JFrame {
     }
     
     public void GameOver(){
-        jLabelGameOver.setText("Te quedaste sin vidas, ¿quieres volver a jugar? ");
+        jLabelGameOver.setText("<html> Te quedaste sin vidas, ¿quieres volver a jugar? </html>");
+    }
+    
+    public void Congratulations(){
+        jLabelGameOver.setText("<html> FELICITACIONES TERMINASTE EL JUEGO!!!!! </html>");
+        
+        String[] dataReward = main.dataReward();
+        SetImageLabel(jLabelReward1, dataReward[0]);
+        SetImageLabel(jLabelReward2, dataReward[dataReward.length - 1]);
+        
+    }
+   
+     private void SetImageLabel (JLabel labelIcon, String root){
+        URL imageURL = getClass().getResource(root);
+        ImageIcon image = new ImageIcon(imageURL);
+        
+        
+        
+        Icon icon = new ImageIcon(
+               image.getImage().getScaledInstance(labelIcon.getWidth(), labelIcon.getHeight(), Image.SCALE_DEFAULT)
+        );
+        labelIcon.setIcon(icon);
+        this.repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +71,8 @@ public class Start extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelGameOver = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabelReward1 = new javax.swing.JLabel();
+        jLabelReward2 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -83,6 +108,8 @@ public class Start extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 268, 108));
+        jPanel1.add(jLabelReward1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 110, 160));
+        jPanel1.add(jLabelReward2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 120, 170));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo_start.gif"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(700, 530));
@@ -163,6 +190,8 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelGameOver;
+    private javax.swing.JLabel jLabelReward1;
+    private javax.swing.JLabel jLabelReward2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

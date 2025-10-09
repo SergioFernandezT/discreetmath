@@ -8,7 +8,7 @@ public class Player {
     private String name;
     private int lives = 3;
     private int gameId;
-    private Reward[] rewards;
+    private Reward[] rewards = {};
 
     public Player(int playerId, String name, int gameId){
         this.playerId = playerId;
@@ -58,18 +58,23 @@ public class Player {
 
     public void setRewards(Reward[] rewards) {
         this.rewards = rewards;
+        System.out.println(this.rewards);
 
     }
 
     public void addReward(Reward reward) {
-        if (this.rewards != null) {
+        if (this.rewards == null) {
+            // Si aún no hay recompensas, inicializa el arreglo con una
+            this.rewards = new Reward[1];
+            this.rewards[0] = reward;
+        } else {
+        // Si ya hay recompensas, aumenta el tamaño y agrega la nueva
             int newLength = this.rewards.length + 1;
             this.rewards = Arrays.copyOf(this.rewards, newLength);
             this.rewards[this.rewards.length - 1] = reward;
-        }else{
-            System.out.println("Error in add reward.");
         }
     }
+    
     public int getPlayerId() {
         return playerId;
     }
