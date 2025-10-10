@@ -79,7 +79,7 @@ public class Main {
         
         
          arreglo = new String[] {"n" ,"<html> 2<sup>n</sup></html>","<html> 2<sup>n-1</sup></html>","n!"};
-        Challenge challenge1_4 = new Challenge(3,"""
+        Challenge challenge1_4 = new Challenge(4,"""
                                                 <html>
                                                 <body style='font-family: Cambria Math; font-size: 18px; color: white;'>
                                                 Se construye una cadena duplicando la anterior, comenzando con el paso 1 = 'a'. 
@@ -90,7 +90,7 @@ public class Main {
         
         
         arreglo = new String[] {"Impar siempre", "Divisible por 2", "Divisible por 3", "Nunca múltiplo de 3"};
-        Challenge challenge1_5 = new Challenge(3, """
+        Challenge challenge1_5 = new Challenge(5, """
                                                 <html>
                                                 <body style='font-family: Cambria Math; font-size: 18px; color: white;'>
                                                 Tres IDs consecutivos m, m+1, m+2. Su suma es múltiplo de 3.
@@ -104,46 +104,61 @@ public class Main {
        
         
         arreglo = new String[] {"{1, 2, 3, 4}", "{3, 4, 5, 6}", "{1, 2, 3, 4, 5, 6}", "{5, 6}"};
-        Challenge challenge2_1 = new Challenge(4,"""
+        Challenge challenge2_1 = new Challenge(1, """
                                                 <html>
-                                                <body style='font-family: Cambria Math; font-size: 18px; color: white;'>
+                                                <body style='font-family: Cambria Math; font-size: 9px; color: white;'>
                                                 Dado los conjuntos A y B:
 
+                                                <span style="font-size: 2px;">
                                                 <pre>
-                                                Conjunto A:        Conjunto B:
-                                               _________           _________
-                                              /         \\        /         \\
-                                             /     1     \\      /     3     \\
-                                             |  2     3   |     |  4     5    |
-                                             |       4    |     |       6     |
-                                             \\           /     \\            /
-                                              \\_________/       \\__________/
+                                                  Conjunto X:        Conjunto Y:
+                                                   ____________    ___________
+                                                  /            \\ /            \\
+                                                 /  1           ⋈            5 \\
+                                                /             /  \\               \\
+                                                |             | 4 |              |
+                                                |             |   |              |
+                                                |             |  3|        6     |
+                                                \\  2           \\ /              /
+                                                 \\             ⋈               /
+                                                  \\___________/  \\___________/
+
+                                                </span>
                                                 </pre>
 
-                                                ,la unión entre ambos es:
+                                                La unión entre ambos es:
                                                 </body>
                                                 </html>
-                                                """, arreglo,"c"  );
+                                                """, arreglo, "c");
+
         
      
         
         arreglo = new String[] {"{a,b,d}", "{c,e}", "{f,g}", "{a,b,c,d,e,f,g}"};
-        Challenge challenge2_2 = new Challenge(5,"""
+        Challenge challenge2_2 = new Challenge(2,"""
                                                 <html>
-                                                <body style='font-family: Cambria Math; font-size: 18px; color: white;'>
+                                                <body style='font-family: Cambria Math; font-size: 9px; color: white;'>
                                                 Sean los conjuntos X y Y:
 
+                                                <span style="font-size: 2px;"> 
                                                 <pre>
-                                                Conjunto X:          Conjunto Y:
-                                                 _________           _________
-                                                /              /     \\               \\
-                                               /     a       /    \\      c     \\
-                                               |  b     c   |      |  e     f   |
-                                               |       d    |      |       g    |
-                                               \\           /      \\           /
-                                                \\_________/        \\_________/
-                                                </pre>
+                                                      Conjunto X:        Conjunto Y:
+                                                      ____________    ___________
+                                                     /            \\ /            \\
+                                                    /        a     ⋈     e        \\
+                                                   /             /  \\               \\
+                                                   |        d    |   |          f   |
+                                                   |             | c |              |
+                                                   |             |   |              |
+                                                   \\              \\ /              /
+                                                    \\      b       ⋈       g     /
+                                                     \\___________/  \\___________/
 
+                                                </span>
+                                                </pre>
+                                                    
+                                                 
+                                                                                                  
                                                 La diferencia X − Y es:
                                                 </body>
                                                 </html>
@@ -156,7 +171,7 @@ public class Main {
         
          
         arreglo = new String[] {" {∅, {x}, {y}} ", " {{x}, {y}}", "  {∅, {x}, {y}, {x, y}} ", " {{x, y}}"};
-        Challenge challenge2_3 = new Challenge(6,"""
+        Challenge challenge2_3 = new Challenge(3,"""
                                                 <html>
                                                 <body style='font-family: Cambria Math; font-size: 18px; color: white;'>
                                                 Sea el conjunto:
@@ -170,47 +185,55 @@ public class Main {
         
         
         arreglo = new String[] {"{2,4,6,8} ", "{1,3,5,7}", "{1,2,3,4,5,6,7,8}", "{8}"};
-        Challenge challenge2_4 = new Challenge(6,"""
+        Challenge challenge2_4 = new Challenge(4,"""
                                                 <html>
-                                                <body style='font-family: Cambria Math; font-size: 18px; color: white;'>
+                                                <body style='font-family: Cambria Math; font-size: 9px; color: white;'>
                                                 Universo U con el conjunto A dentro:
-
+                                                <span style="font-size: 2px;">
                                                 <pre>
                                                 Universo U:
                                                  ___________________________
                                                 /                           \\
                                                / 1                      3    \\
                                                |                              |
-                                               |    _______          5        |  
-                                               |   /          \\              |
+                                               |    __________       5        |
+                                               |   /          \\               |
                                                |  |    2    6  |  Conjunto A  |
-                                               |  |   4   8    |              |  
-                                               |  \\_______    /              |
+                                               |  |   4   8    |              |
+                                               |  \\___________/               |
                                                \\                     7       /
-                                                \\_________________________  /
+                                                \\___________________________/
+
                                                 </pre>
+                                                </span>
+                                                
+
                                                 </body>
                                                 </html>
                                                 """, arreglo,"b"  );
         
         
         arreglo = new String[] {"{m,n} ", "{o,p}", "{q,r}", "{m,n,o,p,q,r}"};
-        Challenge challenge2_5 = new Challenge(6, """
+        Challenge challenge2_5 = new Challenge(5, """
                                                 <html>
-                                                <body style='font-family: Cambria Math; font-size: 18px; color: white;'>
+                                                <body style='font-family: Cambria Math; font-size: 9px; color: white;'>
                                                 Sean los conjuntos P y Q:
 
+                                                <span style="font-size: 2px;">
                                                 <pre>
-                                                    Conjunto P:        Conjunto Q:
-                                                     _________           _________
-                                                    /         \\        /         \\
-                                                   /  m   n    \\      /   o   p   \\
-                                                   |  o      p  |      |  q       r |
-                                                   |            |      |            |
-                                                   \\          /       \\          /
-                                                    \\________/         \\________/
-                                                </pre>
+                                                   Conjunto P:       Conjunto Q:
+                                                   ____________     ___________
+                                                  /             \\ /            \\
+                                                 /   n           ⋈           q  \\
+                                                /               / \\              \\
+                                                |              | p |              |
+                                                |              |   |              |
+                                                |              | o |              |
+                                                \\       m       \\ /              /
+                                                 \\              ⋈   r          /
+                                                  \\___________/  \\____________/
 
+                                                </span></pre>
                                                 La intersección de P y Q es:
                                                 </body>
                                                 </html>
@@ -225,6 +248,10 @@ public class Main {
         return game.currentChallengen(); 
     }
     
+     public String[]  dataReward(){
+        return game.dataReward(); 
+    }
+     
     public boolean answer(String answer){
         boolean correctanswer = game.StatusLevel(answer);
         game.controlLevel(correctanswer);    
@@ -234,6 +261,9 @@ public class Main {
     public String[] dataGame() {     
         String[] data = game.dataPlayer();  
         return data;
+    }
+    public void setGiveReward(int giveReward) {
+        game.setGiveReward(giveReward);
     }
  
    
